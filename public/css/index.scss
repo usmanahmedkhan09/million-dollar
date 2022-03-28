@@ -1,0 +1,51 @@
+@import './components/input';
+
+@import './components/button';
+
+@import './utils/variable';
+
+
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height : 100%;
+}
+
+
+.app-mt-10{
+    margin-top : 10px
+}
+
+.app-mb-32{
+    margin-bottom : 32px;
+}
+
+.app-flex-between{
+    display : flex;
+    justify-content : space-between;
+}
+
+.app-text-xsmall{
+    font-size : 12px;
+}
+
+.app-margin-vertical{
+    margin-top : 16px;
+    margin-bottom : 16px;
+}
+
+.app-text-center{
+    text-align : center;
+}
+
+.app-width-50 { 
+    width: 50%;
+}
+
+.app-full-width{ 
+    width : 100%
+}
