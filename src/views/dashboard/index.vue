@@ -41,6 +41,8 @@ export default defineComponent({
     grid-area: layout--content;
     border: 1px solid green;
     height: calc(100vh - 60px);
+    padding: 2rem;
+    overflow: scroll;
   }
 }
 </style>
