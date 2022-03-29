@@ -204,12 +204,14 @@ export default defineComponent({
 table {
   width: 100%;
   margin-top: 24px;
+  border-spacing: unset;
 
   thead {
     text-align: left;
 
     th {
       border-bottom: 1px solid;
+      border-top: 1px solid;
       border-collapse: collapse;
     }
   }

@@ -31,15 +31,16 @@ export default defineComponent({
 
   &--sidebar {
     grid-area: layout--sidebar;
+    border-right: 1px solid black;
   }
 
   &--topbar {
     grid-area: layout--topbar;
+    border-bottom: 1px solid black;
   }
 
   &--content {
     grid-area: layout--content;
-    border: 1px solid green;
     height: calc(100vh - 60px);
     padding: 2rem;
     overflow: scroll;

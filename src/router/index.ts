@@ -24,6 +24,11 @@ const routes: Array<RouteRecordRaw> = [
         name: 'dashboard-info',
         component: () => import('../views/dashboard/dashboard-info.vue'),
       },
+      {
+        path: "/drivers-info",
+        name: 'drivers-info',
+        component: () => import('../views/drivers/drivers-info.vue'),
+      },
     ],
   },
 

@@ -1,12 +1,15 @@
 <template>
   <div class="sidebar">
-    <div class="app-flex-between app-full-width app-mb-32">
+    <div
+      class="app-flex-between app-full-width app-mb-32"
+      style="border-bottom: 1px solid; padding-block: 9.5px"
+    >
       <p style="align-self: center; font-weight: 700; margin-left: 24px">
         VENDOR PANEL
       </p>
       <img src="/images/bars.svg" alt="home" style="height: 40px" />
     </div>
-    <router-link class="sidebar--item" to="">
+    <router-link class="sidebar--item" to="/">
       <img src="/images/home.svg" alt="home" />
       <span>Dashboard</span>
     </router-link>
@@ -18,7 +21,7 @@
       <img src="/images/wallet.svg" alt="home" />
       <span>Earnings</span>
     </router-link>
-    <router-link class="sidebar--item" to="">
+    <router-link class="sidebar--item" to="drivers-info">
       <img src="/images/card.svg" alt="home" />
       <span>Drivers</span>
     </router-link>
