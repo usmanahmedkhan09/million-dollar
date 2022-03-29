@@ -1,7 +1,7 @@
 <template>
   <div class="dashboard">
     <div class="dashboard--Title">
-      <img src="/images/home.svg" alt="home" />
+      <img class="app-mr-16" src="/images/home.svg" alt="home" />
       <h3>Dashboard</h3>
     </div>
     <div class="dashboard__status">
@@ -158,6 +158,9 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .dashboard {
+  img {
+    height: 20px;
+  }
   &--Title {
     display: flex;
   }

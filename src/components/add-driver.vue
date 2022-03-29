@@ -3,7 +3,7 @@
     <div class="card">
       <div class="app-flex-between app-margin-vertical">
         <div class="app-flex-between">
-          <img src="/images/card.svg" alt="card" />
+          <img class="app-mr-16" src="/images/card.svg" alt="card" />
           <div class="">
             <h3>Add New Driver</h3>
             <p class="app-width-50">
@@ -61,13 +61,17 @@ import { defineComponent, inject } from "vue";
 
 export default defineComponent({
   setup() {
-    let { updateShowModal } = inject("showModal");
+    /* eslint-disable */
+    let { updateShowModal }: any = inject("showModal");
     return { updateShowModal };
   },
 });
 </script>
 
 <style lang="scss" scoped>
+img {
+  height: 20px;
+}
 form {
   display: grid;
   grid-auto-rows: auto;

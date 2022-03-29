@@ -50,15 +50,16 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-img {
-  height: 20px;
-  margin-right: 16px;
-}
 .sidebar {
   display: flex;
   flex-direction: column;
   height: 100vh;
   align-items: center;
+
+  img {
+    height: 20px;
+    margin-right: 16px;
+  }
 
   &--item {
     margin: 1rem;

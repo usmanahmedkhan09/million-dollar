@@ -5,15 +5,15 @@
     </app-modal>
     <div class="d-header">
       <div style="flex-grow: 0.9" class="d-flex">
-        <img src="/images/card.svg" alt="card" />
+        <img class="app-mr-16" src="/images/card.svg" alt="card" />
         <span>Drivers</span>
       </div>
       <div class="d-flex" @click="showModal = true" style="cursor: poniter">
-        <img src="/images/plus.svg" alt="card" />
+        <img class="app-mr-16" src="/images/plus.svg" alt="card" />
         <span>Add New Driver</span>
       </div>
       <div class="d-flex">
-        <img src="/images/share.svg" alt="card" />
+        <img class="app-mr-16" src="/images/share.svg" alt="card" />
         <span>Share Link</span>
       </div>
     </div>
@@ -112,6 +112,9 @@ export default defineComponent({
 });
 </script>
 <style lang="scss" scoped>
+img {
+  height: 20px;
+}
 .d-flex {
   display: flex;
 }
