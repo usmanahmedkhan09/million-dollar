@@ -47,7 +47,7 @@ export const useDrivers = defineStore('Driver', {
             return await http.patch(`/drivers/${driverId}`, payload)
         },
 
-        async deleteDriverById(driverId: string)
+        async deleteDriverById(driverId: string | undefined)
         {
             const response = await http.delete(`/drivers/${driverId}`)
             if (response) this.getDrivers()

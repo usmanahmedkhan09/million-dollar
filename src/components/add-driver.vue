@@ -133,11 +133,7 @@ import { Driver } from "@/models/drivers.model";
 import { useDrivers } from "@/store/driversStore";
 
 export default defineComponent({
-  props: {
-    id: {
-      type: String,
-    },
-  },
+  props: ["id"],
   setup(props) {
     let driver = ref(new Driver());
 
