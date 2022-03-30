@@ -13,9 +13,19 @@
       <div class="app-text-center app-width-50">
         <h2 class="app-mb-32">VENDOR LOGIN</h2>
       </div>
-      <form class="signIn--form">
-        <input class="app-input" type="text" placeholder="Email" />
-        <input class="app-input app-mt-10" type="text" placeholder="Password" />
+      <form class="signIn--form" @submit.prevent="userStore.loginUser(user)">
+        <input
+          v-model="user.email"
+          class="app-input"
+          type="text"
+          placeholder="Email"
+        />
+        <input
+          v-model="user.password"
+          class="app-input app-mt-10"
+          type="password"
+          placeholder="Password"
+        />
         <div class="app-flex-between app-margin-vertical">
           <p class="app-text-xsmall">Remeber Me</p>
           <p class="app-text-xsmall">Forget Password</p>
@@ -33,11 +43,17 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
+import { User } from "../../models/user.model";
+import { useUsers } from "../../store/userStore";
 
 export default defineComponent({
   setup() {
-    return {};
+    let userStore = useUsers();
+
+    let user = ref(new User());
+
+    return { user, userStore };
   },
 });
 </script>

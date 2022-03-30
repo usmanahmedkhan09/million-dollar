@@ -1,23 +1,22 @@
 <template>
   <div class="drivers">
     <app-modal :showModal="showModal">
-      <add-driver></add-driver>
+      <add-driver :id="driverId" v-if="driverId"></add-driver>
     </app-modal>
     <div class="d-header">
       <div style="flex-grow: 0.9" class="d-flex">
         <img class="app-mr-16" src="/images/card.svg" alt="card" />
-        <h3 style="margin:0">Drivers</h3>
+        <h3 style="margin: 0">Drivers</h3>
       </div>
-      <div class="butnadd" @click="showModal = true" >
+      <div class="butnadd" @click="showModal = true">
         <i class="fa fa-plus"></i>
         <span>Add New Driver</span>
       </div>
-      
-      <div class="butnadd" >
+
+      <div class="butnadd">
         <i class="fa fa-share"></i>
         <span>Share Link</span>
       </div>
-      
     </div>
     <div>
       <table>
@@ -32,68 +31,19 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>lorem</td>
-            <td>1232322</td>
-            <td>lorem@example.com</td>
-            <td>APK</td>
-            <td>424444997</td>
+          <tr v-for="driver in driverStore.drivers" :key="driver._id">
+            <td>{{ driver.captainName }}</td>
+            <td>{{ driver.contactNumber }}</td>
+            <td>{{ driver.emailAddress }}</td>
+            <td>{{ driver.drivingLicenseNumber }}</td>
+            <td>{{ driver.cnicNumber }}</td>
             <td>
               <div class="tableicon">
-                <i class="fa fa-eye"></i>
-                <i class="fa fa-trash"></i>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>lorem</td>
-            <td>1232322</td>
-            <td>lorem@example.com</td>
-            <td>APK</td>
-            <td>424444997</td>
-            <td>
-              <div class="tableicon">
-                <i class="fa fa-eye"></i>
-                <i class="fa fa-trash"></i>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>lorem</td>
-            <td>1232322</td>
-            <td>lorem@example.com</td>
-            <td>APK</td>
-            <td>424444997</td>
-            <td>
-              <div class="tableicon">
-                <i class="fa fa-eye"></i>
-                <i class="fa fa-trash"></i>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>lorem</td>
-            <td>1232322</td>
-            <td>lorem@example.com</td>
-            <td>APK</td>
-            <td>424444997</td>
-            <td>
-              <div class="tableicon">
-                <i class="fa fa-eye"></i>
-                <i class="fa fa-trash"></i>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>lorem</td>
-            <td>1232322</td>
-            <td>lorem@example.com</td>
-            <td>APK</td>
-            <td>424444997</td>
-            <td>
-              <div class="tableicon">
-                <i class="fa fa-eye"></i>
-                <i class="fa fa-trash"></i>
+                <i class="fa fa-eye" @click="updateShowModal(driver._id)"></i>
+                <i
+                  class="fa fa-trash"
+                  @click="driverStore.deleteDriverById(driver._id)"
+                ></i>
               </div>
             </td>
           </tr>
@@ -103,8 +53,9 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, ref, provide } from "vue";
+import { defineComponent, ref, provide, onMounted } from "vue";
 import AddDriver from "../../components/add-driver.vue";
+import { useDrivers } from "@/store/driversStore";
 
 export default defineComponent({
   components: {
@@ -113,34 +64,44 @@ export default defineComponent({
   setup() {
     let showModal = ref(false);
 
-    const updateShowModal = () => {
+    let driverStore = useDrivers();
+
+    let driverId = ref("");
+
+    /* eslint-disable */
+    const updateShowModal = (id: any) => {
+      driverId.value = id;
       showModal.value = !showModal.value;
     };
 
     provide("showModal", { showModal, updateShowModal });
 
-    return { showModal, updateShowModal };
+    onMounted(() => {
+      driverStore.getDrivers();
+    });
+
+    return { showModal, updateShowModal, driverStore, driverId };
   },
 });
 </script>
 <style lang="scss" scoped>
-.tableicon{
-  i{
+.tableicon {
+  i {
     color: #4a9aff;
     padding: 6px;
     font-size: 16px;
   }
 }
-.butnadd{
-    background: #4a9aff;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    padding: 8px 14px;
-    border-radius: 5px;
-    font-size: 14px;
-  i{
-    margin-right:16px
+.butnadd {
+  background: #4a9aff;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: 5px;
+  font-size: 14px;
+  i {
+    margin-right: 16px;
   }
 }
 img {
@@ -158,7 +119,7 @@ table {
   margin-top: 2rem;
   border: 1px solid #ccc;
   border-spacing: unset;
-  background:#fff;
+  background: #fff;
   font-size: 14px;
 
   tr th {

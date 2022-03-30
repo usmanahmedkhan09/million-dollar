@@ -21,49 +21,137 @@
         <h3>Mandatory Information</h3>
       </div>
       <form class="form">
-        <input class="app-input" type="text" placeholder="Captian Name" />
-        <input class="app-input" type="text" placeholder="Contact Number" />
         <input
+          v-model="driver.captainName"
+          class="app-input"
+          type="text"
+          placeholder="Captian Name"
+        />
+        <input
+          v-model="driver.contactNumber"
+          class="app-input"
+          type="text"
+          placeholder="Contact Number"
+        />
+        <input
+          v-model="driver.emergencyContactNumber"
           class="app-input"
           type="text"
           placeholder=" Emergancy Contact Number"
         />
-        <input class="app-input" type="text" placeholder="Complete Adress" />
-        <input class="app-input" type="text" placeholder="Email" />
-        <input class="app-input" type="text" placeholder="CNIC Number" />
         <input
+          v-model="driver.completeAddress"
+          class="app-input"
+          type="text"
+          placeholder="Complete Adress"
+        />
+        <input
+          v-model="driver.emailAddress"
+          class="app-input"
+          type="text"
+          placeholder="Email"
+        />
+        <input
+          v-model="driver.cnicNumber"
+          class="app-input"
+          type="text"
+          placeholder="CNIC Number"
+        />
+        <input
+          v-model="driver.drivingLicenseNumber"
           class="app-input"
           type="text"
           placeholder="Driving License Number"
         />
-        <input class="app-input" type="text" placeholder="Car Type" />
-        <input class="app-input" type="text" placeholder="Car Making" />
-        <input class="app-input" type="text" placeholder="Car Modal" />
-        <input class="app-input" type="text" placeholder="Car Color" />
-        <input class="app-input" type="text" placeholder="Car Plate Number" />
         <input
+          v-model="driver.carType"
+          class="app-input"
+          type="text"
+          placeholder="Car Type"
+        />
+        <input
+          v-model="driver.carMaking"
+          class="app-input"
+          type="text"
+          placeholder="Car Making"
+        />
+        <input
+          v-model="driver.carModel"
+          class="app-input"
+          type="text"
+          placeholder="Car Modal"
+        />
+        <input
+          v-model="driver.carColor"
+          class="app-input"
+          type="text"
+          placeholder="Car Color"
+        />
+        <input
+          v-model="driver.carPlateNumber"
+          class="app-input"
+          type="text"
+          placeholder="Car Plate Number"
+        />
+        <input
+          v-model="driver.referenceName"
           class="app-input"
           type="text"
           placeholder="Referance Name/Number "
         />
-        <input class="app-input" type="text" placeholder="Rating" />
+        <input
+          v-model="driver.rating"
+          class="app-input"
+          type="text"
+          placeholder="Rating"
+        />
       </form>
       <div class="app-margin-vertical" style="float: right">
-        <button style="width: 100px" class="app-btn app-btn--secondary">
+        <button
+          v-if="!id"
+          @click="driverStore.addDriver(driver), updateShowModal()"
+          style="width: 100px"
+          class="app-btn app-btn--secondary"
+        >
           Submit
+        </button>
+        <button
+          v-else
+          @click="driverStore.updateDriverById(id, driver), updateShowModal()"
+          style="width: 100px"
+          class="app-btn app-btn--secondary"
+        >
+          Update
         </button>
       </div>
     </div>
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, inject } from "vue";
+import { defineComponent, inject, onMounted, ref } from "vue";
+import { Driver } from "@/models/drivers.model";
+import { useDrivers } from "@/store/driversStore";
 
 export default defineComponent({
-  setup() {
+  props: {
+    id: {
+      type: String,
+    },
+  },
+  setup(props) {
+    let driver = ref(new Driver());
+
+    let driverStore = useDrivers();
     /* eslint-disable */
     let { updateShowModal }: any = inject("showModal");
-    return { updateShowModal };
+
+    onMounted(() => {
+      if (props.id) {
+        driver.value = driverStore.driverById(props.id) as Driver;
+      }
+    });
+
+    return { updateShowModal, driver, driverStore };
   },
 });
 </script>

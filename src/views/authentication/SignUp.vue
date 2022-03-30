@@ -13,21 +13,43 @@
       <div class="app-text-center app-width-50">
         <h2 class="app-mb-32">VENDOR SIGNUP</h2>
       </div>
-      <form class="signIn--form">
-        <input class="app-input" type="text" placeholder="Full Name" />
+      <form class="signIn--form" @submit.prevent="userStore.registerUser(user)">
         <input
+          v-model="user.fullName"
+          class="app-input"
+          type="text"
+          placeholder="Full Name"
+        />
+        <input
+          v-model="user.businessName"
           class="app-input app-mt-10"
           type="text"
           placeholder="Bussiness Name"
         />
-        <input class="app-input app-mt-10" type="text" placeholder="Address" />
         <input
+          v-model="user.address"
+          class="app-input app-mt-10"
+          type="text"
+          placeholder="Address"
+        />
+        <input
+          v-model="user.licenseNo"
           class="app-input app-mt-10"
           type="text"
           placeholder="License No"
         />
-        <input class="app-input app-mt-10" type="text" placeholder="Email" />
-        <input class="app-input app-mt-10" type="text" placeholder="Password" />
+        <input
+          v-model="user.email"
+          class="app-input app-mt-10"
+          type="text"
+          placeholder="Email"
+        />
+        <input
+          v-model="user.password"
+          class="app-input app-mt-10"
+          type="password"
+          placeholder="Password"
+        />
 
         <div class="app-flex-between app-margin-vertical">
           <p class="app-text-xsmall">Remeber Me</p>
@@ -46,11 +68,16 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from "vue";
-
+import { defineComponent, ref } from "vue";
+import { User } from "../../models/user.model";
+import { useUsers } from "../../store/userStore";
 export default defineComponent({
   setup() {
-    return {};
+    let userStore = useUsers();
+
+    let user = ref(new User());
+
+    return { user, userStore };
   },
 });
 </script>
