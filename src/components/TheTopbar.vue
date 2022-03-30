@@ -2,12 +2,12 @@
   <div class="topbar-container">
     <div class="search__wrapper">
       <input class="app-search" type="text" placeholder="search...." />
-      <img src="/images/search-icon.svg" alt="search-icon" height="20px" />
+      <i class="fa fa-search"></i>
     </div>
-    <div>Vendor</div>
+    <div><h4 style="margin:0">Vendor</h4></div>
     <div class="item-divider"></div>
-    <div class="">
-      <img height="40px" src="/images/user.svg" alt="user" />
+    <div class="userprofileicon">
+      <i class="fa fa-user-circle"></i>
     </div>
   </div>
 </template>
@@ -25,6 +25,12 @@
   height: 46px;
   width: 1px;
   right: 40%;
-  border: 1px solid black;
+  border: 1px solid #ccc;
+}
+.userprofileicon{
+  i{
+    font-size:40px;
+    color: #ccc
+  }
 }
 </style>

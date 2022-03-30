@@ -18,7 +18,7 @@
         </div>
       </div>
       <div class="app-margin-vertical">
-        <h2>Mandatory Information</h2>
+        <h3>Mandatory Information</h3>
       </div>
       <form class="form">
         <input class="app-input" type="text" placeholder="Captian Name" />

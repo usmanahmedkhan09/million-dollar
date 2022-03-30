@@ -35,15 +35,20 @@ export default defineComponent({
 
   &--sidebar {
     grid-area: layout--sidebar;
-    border-right: 1px solid black;
+    background: #ffffff;
+    border-right: 0px solid #e4e4e4;
+    z-index: 11;
+    box-shadow: 0 0 2rem 0 rgb(136 152 170 / 15%);
+    transition: all .2s ease-out;
   }
 
   &--topbar {
     grid-area: layout--topbar;
-    border-bottom: 1px solid black;
+    box-shadow: 0 0 20px rgb(0 0 0 / 10%);
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    z-index: 999;
   }
 
   &--content {
@@ -51,6 +56,7 @@ export default defineComponent({
     height: calc(100vh - 60px);
     padding: 2rem;
     overflow: scroll;
+    background: #f5f5f5;
   }
 }
 </style>

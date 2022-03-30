@@ -63,8 +63,23 @@ html {
 }
 
 .app-full-width{ 
-    width : 100%
+    width : 100%;
+    height: 60px;
+    align-items: center;
 }
 .app-mr-16{
     margin-right: 16px;
 }
+ h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: #32393f;
+    font-family: "Montserrat", sans-serif;
+}
+p{
+    font-size: 14px;
+    line-height: 1.6;
+    font-family: "Montserrat", sans-serif;
+  }
