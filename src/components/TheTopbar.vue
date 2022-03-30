@@ -4,7 +4,7 @@
       <input class="app-search" type="text" placeholder="search...." />
       <i class="fa fa-search"></i>
     </div>
-    <div><h4 style="margin:0">Vendor</h4></div>
+    <div><h4 style="margin:0;color:#fff">Vendor</h4></div>
     <div class="item-divider"></div>
     <div class="userprofileicon">
       <i class="fa fa-user-circle"></i>
@@ -25,12 +25,12 @@
   height: 46px;
   width: 1px;
   right: 40%;
-  border: 1px solid #ccc;
+  border: 1px solid #fff;
 }
 .userprofileicon{
   i{
     font-size:40px;
-    color: #ccc
+    color: #fff
   }
 }
 </style>
