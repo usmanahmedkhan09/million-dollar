@@ -29,6 +29,24 @@ const routes: Array<RouteRecordRaw> = [
         name: 'drivers-info',
         component: () => import('../views/drivers/drivers-info.vue'),
       },
+      {
+        path: '/profile',
+        name: 'profile',
+    
+        component: () => import('../views/profile/profile.vue')
+      },
+      {
+        path: '/edit-profile',
+        name: 'edit-profile',
+    
+        component: () => import('../views/profile/edit-profile.vue')
+      },
+      {
+        path: '/change-password',
+        name: 'change-password',
+    
+        component: () => import('../views/change-password.vue')
+      },
     ],
   },
 
@@ -39,7 +57,8 @@ const routes: Array<RouteRecordRaw> = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+  },
+  
 ]
 
 const router = createRouter({

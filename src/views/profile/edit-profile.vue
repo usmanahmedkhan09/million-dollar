@@ -1,0 +1,217 @@
+<template>
+  <div class="drivers">
+   
+    <div class="d-header">
+      <div style="flex-grow: 0.9" class="d-flex">
+        <i class="app-mr-16 fonticon fa fa-user-circle"></i>
+        <h3 style="margin:0">Edit Profile</h3>
+      </div>
+     
+      
+    </div>
+    <div class="cardbox">
+      <div class="card-body">
+        <div class="profile-img-edit">
+          <img class="profile-pic" src="/images/dp.jpg" alt="profile-pic">
+          <div class="p-image">
+            <i class="fas fa-edit "></i>
+              <input class="file-upload" type="file" accept="image/*">
+          </div>
+        </div>
+        <form>
+          <div class="forminput">
+            <label>First Name:</label>
+            <input type="text" placeholder="First Name" >
+          </div>
+          <div class="forminput">
+            <label>Last Name:</label>
+            <input type="text" placeholder="Last Name" >
+          </div>
+          <div class="forminput">
+            <label>City:</label>
+            <input type="text" placeholder="Captian Name" >
+          </div>
+          <div class="forminput">
+            <label>Gender:</label>
+            <select>
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+          </div>
+          <div class="forminput">
+            <label>Dob:</label>
+            <input type="text" placeholder="Dob" >
+          </div>
+          <div class="forminput">
+            <label>Marital Status:</label>
+            <select>
+              <option selected="">Single</option>
+              <option>Married</option>
+              <option>Widowed</option>
+              <option>Divorced</option>
+              <option>Separated </option>
+            </select>
+          </div>
+          <div class="forminput">
+            <label>Age:</label>
+            <select>
+              <option>12-18</option>
+              <option>19-32</option>
+              <option selected="">33-45</option>
+              <option>46-62</option>
+              <option>63 &gt; </option>
+            </select>
+          </div>
+          <div class="forminput">
+            <label>Country:</label>
+            <select >
+                <option selected="">Dubail</option>
+                <option>Noida</option>
+                <option>USA</option>
+                <option>India</option>
+                <option>Africa</option>
+              </select>
+          </div>
+          <div class="forminput">
+            <label>State:</label>
+            <select>
+              <option>California</option>
+              <option>Florida</option>
+              <option selected="">Sharjah</option>
+              <option>Connecticut</option>
+              <option>Louisiana</option>
+            </select>
+          </div>
+          <div class="forminput">
+            <label>Address:</label>
+            <textarea rows="5"></textarea>
+          </div>
+        </form>
+        <div class="app-margin-vertical textright"  data-v-022086e4=""><button style="width:100px;" class="app-btn app-btn--secondary" data-v-022086e4=""> Submit </button></div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style lang="scss" scoped>
+.fonticon{
+  font-size:20px;
+}
+.textright{
+  text-align: right;
+}
+.profile-img-edit {
+    position: relative;
+    display: inline-block;
+    height: 150px;
+    width: 150px;
+    margin-bottom: 20px;
+    .profile-pic {
+      max-width: 100%;
+      display: block;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      height: 100%;
+  }
+    .p-image {
+      position: absolute;
+      top: auto;
+      right: 8px;
+      bottom: 10px;
+      transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+      background: #4a9aff;
+      color: #fff;
+      border-radius: 50%;
+      height: 30px;
+      width: 30px;
+      line-height: 28px;
+      text-align: center;
+      font-size: 12px;
+      cursor: pointer;
+      .upload-button {
+          font-size: 1.5em;
+      }
+      .file-upload {
+        display: none;
+    }
+  }
+}
+
+.butnadd{
+    background: #4a9aff;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 8px 14px;
+    border-radius: 5px;
+    font-size: 14px;
+  i{
+    margin-right:16px
+  }
+}
+
+.d-flex {
+  display: flex;
+}
+.d-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+form {
+    display: grid;
+    grid-auto-rows: auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    .forminput{
+      margin: 10px 0;
+      label{
+        display: inline-block;
+        margin-bottom: 6px;
+        font-weight: 500;
+      }
+      input {
+          width: 100%;
+          height: 40px;
+          font-size: 14px;
+          padding-inline: 1rem;
+          background: rgba(239, 242, 246, 0.6);
+          mix-blend-mode: normal;
+          opacity: 0.8;
+          border: 1px solid rgba(0, 0, 0, 0.05);
+          border-radius: 8px;
+          color: black !important;
+          font-family: "Montserrat", sans-serif;
+      }
+      select {
+          width: 100%;
+          height: 40px;
+          font-size: 14px;
+          padding-inline: 1rem;
+          background: rgba(239, 242, 246, 0.6);
+          mix-blend-mode: normal;
+          opacity: 0.8;
+          border: 1px solid rgba(0, 0, 0, 0.05);
+          border-radius: 8px;
+          color: black !important;
+          font-family: "Montserrat", sans-serif;
+          outline: none;
+      }
+       textarea {
+          width: 100%;
+          font-size: 14px;
+          padding-inline: 1rem;
+          background: rgba(239, 242, 246, 0.6);
+          mix-blend-mode: normal;
+          opacity: 0.8;
+          border: 1px solid rgba(0, 0, 0, 0.05);
+          border-radius: 8px;
+          color: black !important;
+          font-family: "Montserrat", sans-serif;
+          outline: none;
+      }
+    }
+    
+}
+
+</style>

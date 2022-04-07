@@ -29,7 +29,7 @@
       <i class="fa fa-bell"></i>
       <span>Notifications</span>
     </router-link>
-    <router-link class="sidebar--item" to="">
+    <router-link class="sidebar--item" to="change-password">
       <i class="fa fa-lock"></i>
       <span>Change password</span>
     </router-link>

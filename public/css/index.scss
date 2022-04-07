@@ -83,3 +83,21 @@ p{
     line-height: 1.6;
     font-family: "Montserrat", sans-serif;
   }
+  .cardbox {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 3px 3px rgb(0 0 0 / 5%);
+    margin-bottom: 30px;
+    border: 0;
+    display: inline-block;
+    width: 100%;
+}
+.cardboxtext{
+  display:flex;
+  flex-flow: column;
+}
+.card-body {
+    padding: 30px;
+    display: inline-block;
+    width: 100%;
+}
