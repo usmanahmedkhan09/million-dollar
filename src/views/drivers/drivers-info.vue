@@ -31,7 +31,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="driver in driverStore.drivers" :key="driver._id">
+          <tr v-for="driver in drivers" :key="driver._id">
             <td>{{ driver.captainName }}</td>
             <td>{{ driver.contactNumber }}</td>
             <td>{{ driver.emailAddress }}</td>
@@ -56,6 +56,7 @@
 import { defineComponent, ref, provide, onMounted } from "vue";
 import AddDriver from "../../components/add-driver.vue";
 import { useDrivers } from "@/store/driversStore";
+import { storeToRefs } from "pinia";
 
 export default defineComponent({
   components: {
@@ -65,6 +66,10 @@ export default defineComponent({
     let showModal = ref(false);
 
     let driverStore = useDrivers();
+
+    let { getDrivers } = driverStore;
+
+    let { drivers } = storeToRefs(driverStore);
 
     let driverId = ref("");
 
@@ -77,10 +82,10 @@ export default defineComponent({
     provide("showModal", { showModal, updateShowModal });
 
     onMounted(() => {
-      driverStore.getDrivers();
+      getDrivers();
     });
 
-    return { showModal, updateShowModal, driverStore, driverId };
+    return { showModal, updateShowModal, driverStore, driverId, drivers };
   },
 });
 </script>
